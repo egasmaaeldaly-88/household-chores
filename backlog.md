@@ -1,33 +1,31 @@
-# Shared Household Chores MVP Backlog
+## 1. Verify Django Project and Test Suite
+Goal: Ensure the base Django project runs correctly and initial tests pass.
+Description: Run database migrations and execute the Django test suite using `uv run python manage.py test` to verify the setup is healthy. Confirm that at least one test runs and passes successfully.
 
-## 1. Verify Django Project and Test Runner
-Goal: Verify that the empty Django project runs correctly and passes initial test execution.
-Description: Run the Django test suite using `uv run python manage.py test` to ensure dependencies and project configuration are correct. Add a basic sanity test if needed to verify test execution.
+## 2. Household and Membership Models
+Goal: Implement data models for Households and Memberships with role support.
+Description: Create Django models for `Household` and `Membership` linking users to households with roles (`Organizer`, `Member`) and multi-household switching support. Generate and apply database migrations and write unit tests.
 
-## 2. Implement Core Data Models
-Goal: Define database models for Households, Memberships, Chores, and History with appropriate fields and relationships.
-Description: Create Django models in the `chores` app covering Household, Membership (with roles Organizer/Member), Chores (with title, description, due date, recurrence, assignees, and statuses), and History audit logs. Generate and apply initial database migrations.
+## 3. Chore Model and Recurrence Support
+Goal: Define the `Chore` model supporting statuses, due dates, and assignments.
+Description: Implement the `Chore` model with title, description, due date, recurrence rules, and assignees linked via `Membership`. Configure chore statuses (`To do`, `In progress`, `Completed`, `Overdue`), create migrations, and add unit tests.
 
-## 3. Household Creation and Membership Management
-Goal: Enable Organizers to create households and invite members.
-Description: Implement views and forms allowing users to create a new household (becoming its Organizer) and invite or add new members via Memberships. Ensure proper authentication and authorization checks.
+## 4. Completion History Model
+Goal: Implement the `History` audit log model for completed chores.
+Description: Create the `History` model to track completed chores, the member who completed them, and the timestamp. Add database migrations and write unit tests verifying audit record creation upon chore completion.
 
-## 4. Household Switching and Access Control
-Goal: Allow users to belong to multiple households and switch between them securely.
-Description: Implement session or profile-based household switching so users can toggle their active household context. Enforce data isolation so household data is visible only to that household's members.
+## 5. Household Management Views and Authentication
+Goal: Build household creation, member invitation, and household switching workflows.
+Description: Develop views and server-rendered Django templates allowing users to create households, manage memberships, and switch between active households. Implement access controls ensuring data privacy between households.
 
-## 5. Chore CRUD and Scheduling
-Goal: Implement creation, editing, and scheduling for one-time and recurring chores.
-Description: Build views and forms for creating and editing chores with titles, descriptions, due dates, and recurrence rules. Ensure chores are scoped correctly to the active household.
+## 6. Chore Management and Assignment Workflow
+Goal: Enable creating, editing, assigning, claiming, and completing chores.
+Description: Build views and templates for creating and editing chores, assigning them to members, allowing members to claim tasks, and marking assigned chores complete. Validate form inputs and permissions.
 
-## 6. Chore Assignment and Claiming
-Goal: Allow assignment of chores to household members or self-claiming of available tasks.
-Description: Implement functionality allowing organizers or members to assign chores to specific members or allow members to claim unassigned tasks. Update chore states and assignees accordingly.
+## 7. Shared Dashboard and History Views
+Goal: Provide a shared dashboard for active chores and a view for completion history.
+Description: Create the shared dashboard view displaying household chores, assignees, due dates, and statuses, alongside a history view listing completed chores and completion records. Ensure responsive and clean Vanilla CSS styling.
 
-## 7. Shared Dashboard View
-Goal: Provide a shared household dashboard to view chores, assignees, due dates, and statuses.
-Description: Create a server-rendered dashboard template and view displaying all household chores categorized or filtered by status (To do, In progress, Completed, Overdue). Style the UI using clean Vanilla CSS.
-
-## 8. Completion History View
-Goal: Provide a completion history view tracking completed chores and who completed them.
-Description: Implement logic to record completion events into the History model when chores are marked complete. Build a history view and template allowing household members to review past completions.
+## 8. Integration Testing and MVP Validation
+Goal: Perform end-to-end testing of core user flows across households and chores.
+Description: Write comprehensive integration tests covering the complete MVP user journey from household creation and member joining to chore management, completion, and history tracking. Verify all success criteria.
