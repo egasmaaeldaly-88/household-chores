@@ -1,6 +1,18 @@
 ## 1. Verify Django Project and Test Suite
-Goal: Ensure the base Django project runs correctly and initial tests pass.
-Description: Run database migrations and execute the Django test suite using `uv run python manage.py test` to verify the setup is healthy. Confirm that at least one test runs and passes successfully.
+
+## Goal
+Ensure the base Django project runs correctly and initial tests pass using `uv run python manage.py test`.
+
+## Acceptance criteria
+- [ ] uv run python manage.py test prints OK with at least 1 test
+- [ ] uv run python manage.py migrate applies all database migrations successfully
+
+## Out of scope
+- Implementing data models or views, moved to #2, #3, #4, #5, #6, #7, #8
+
+## Constraints
+- Stay within existing project configuration files and test files
+- Use uv and Django test runner
 
 ## 2. Household and Membership Models
 Goal: Implement data models for Households and Memberships with role support.
