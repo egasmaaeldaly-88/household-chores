@@ -20,7 +20,7 @@ A lightweight web application enabling households to organize chores, assign or 
 
 ## 4. Database Decision
 - **MVP Choice**: SQLite. Zero configuration, lightweight file-based storage, ideal for rapid local development and small households.
-- **Future Scale**: PostgreSQL can be adopted later for higher concurrency and production multi-user scaling, with trade-offs in setup complexity and hosting overhead.
+- **Future Scale**: PostgreSQL can be adopted later for higher concurrency and production multi-user scaling.
 
 ## 5. Project Structure
 - `chores_project/`: Django project configuration (`settings.py`, `urls.py`, `wsgi.py`, `asgi.py`).
@@ -45,5 +45,5 @@ A lightweight web application enabling households to organize chores, assign or 
 - **Configuration & Secrets**: Environment variables (`.env`). Secrets must never be committed.
 - **Git Workflow**: Clean feature/documentation branches with descriptive commit messages.
 
-## 9. Out of Scope / Future Work
+## 9. Out of Scope
 - Email/push notifications, household chat, gamification (points/badges), and advanced analytics.
